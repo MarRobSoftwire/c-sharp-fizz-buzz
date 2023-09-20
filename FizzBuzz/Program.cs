@@ -1,7 +1,7 @@
 ﻿using System.Runtime.InteropServices;
 using System.Collections.Generic;
 
-for ( int i = 1; i < 14; i++ )
+for ( int i = 1; i < 256; i++ )
 {
     List<string> output = new List<string>();
     if ( i % 3 == 0 ) output.Add("Fizz");
@@ -14,14 +14,16 @@ for ( int i = 1; i < 14; i++ )
     if ( i % 13 == 0 ) {
         int firstBIndex = output.FindIndex( item => item.Substring(0,1) == "B");
         if (firstBIndex == -1) {
-            // No B word found
             output.Add("Fezz");
         }
         else {
-            // place before B word
             output.Insert(firstBIndex , "Fezz");
         }
     }
+    if ( i % 17 == 0 ) {
+        output.Reverse();
+    }
+
     if (output.Count == 0)
     { 
         Console.WriteLine(i);
